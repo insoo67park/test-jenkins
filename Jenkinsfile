@@ -32,21 +32,18 @@ pipeline {
                 sh 'mvn -Dmaven.test.failure.ignore=true install assembly:single'
             }
             post {
-                //success {
-                //    junit 'target/surefire-reports/**/*.xml'
-                //}
                 always {
-                    //error "I AM FAILING NOW"
-                    echo "junit test"
+                    echo "=== junit test result ==="
+                    junit allowEmptyResults: true, testResults: "target/surefire-reports/**/*.xml"
                 }
                 success {
-                    echo "MOST DEFINITELY FINISHED"
+                    echo "Maven build is successful."
                 }
                 failure {
-                    echo "I FAILED"
+                    error "Maven build is failed."
                 }
                 cleanup {
-                    echo "I RAN ANYWAY"
+                    echo "Should clean up at later."
                 }
             }
         }
