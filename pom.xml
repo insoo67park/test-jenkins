@@ -138,7 +138,7 @@
         				<archive>
         					<manifest>
 							<addClasspath>true</addClasspath>
-        						<mainClass>com.sds.3dx.conversion.worker.App</mainClass>
+        						<mainClass>com.sds.n3dx.conversion.worker.App</mainClass>
         					</manifest>
         				</archive>
         				<descriptorRefs>
