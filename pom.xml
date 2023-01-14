@@ -137,7 +137,7 @@
         			<configuration>
         				<archive>
         					<manifest>
-        						<mainClass>fully.qualified.MainClass</mainClass>
+        						<mainClass>com.sds.3dx.conversion.worker.App</mainClass>
         					</manifest>
         				</archive>
         				<descriptorRefs>
