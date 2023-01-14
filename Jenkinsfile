@@ -31,11 +31,11 @@ pipeline {
                 sh 'mvn clean'
                 sh 'mvn -Dmaven.test.failure.ignore=true install assembly:single'
             }
-            //post {
-            //    success {
-            //        junit 'target/surefire-reports/**/*.xml'
-            //    }
-            //}
+            post {
+                success {
+                    junit 'target/surefire-reports/**/*.xml'
+                }
+            }
         }
         
         stage('Build container image') {
