@@ -1,0 +1,43 @@
+apiVersion: batch/v1
+king: Job
+metadata: 
+  name: conversionJob
+  namespace: conversionJobs
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name:
+          image:
+          env:
+            - name: SPECUAL_LEVEL_KEY
+              valueFrom:
+                configMapKeyRef:
+                  name: special-config
+                  key: special.how
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: speicial-config
+  namespace: conversionJobs
+  resourceVersion: "651"
+  uid: dadce046-d673-11e5-8cd0-68f728db1985
+data:
+  log_level: INFO
+  special.how: very
+  allowed: 'true'
+  enemies: aliens
+  lives: "3"
+  player_initial_lives: "3"
+  ui_properties_file_name: "user-interface.properties"
+  game-special-ket: |
+    enenies=aliens
+    lives=3
+    enemies.cheat=true
+    enemies.cheat.level=noGoodRotten
+    secret.code.alowed=true
+    secret.code.passphrase=UUDDLRLRBABAS
+    secret.code.lives=30
+  

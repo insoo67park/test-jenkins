@@ -1,0 +1,28 @@
+server:
+  port: 9000
+  shutdown: graceful
+---
+spring:
+  kafka:
+    #bootstrap-servers: localhost:9092
+    bootstrap-servers: ${kafka.boostrap.servers}
+    consumer:
+      enable-auto-commit: false
+      #group-id: so47062346
+      group-id: ${kafka.client.groupId}
+    properties:
+      reconnect.backoff.ms: 1000
+  lifecycle:
+    timeout-per-shutdown-phase: 1m
+---
+app:
+  3dx-converter:
+    executablePath: ${app.3dx-converter.executablePath}
+  jobName: ${app.jobName}
+  kafka:
+    consumer:
+      beanName: ${app.jobName}
+      listen.queueName: ${app.message.queueName.req}
+      client.groupName: ${kafka.client.groupId}
+    producer:
+      publish.queueName: ${app.message.queueName.res}

@@ -1,0 +1,41 @@
+package com.sds.n3dx.conversion.worker;
+
+import lombok.Data;
+
+@Data
+public class ConversionResponse {
+
+	public static enum Result { SUCCESS, FAIL }
+	
+	public static enum FailCause {
+		GENERIC_FAILURE,
+		MODEL_LOAD_FAILURE,
+		INVALID_LICENSE,
+		INITIALIZATION_FAILURE,
+		NO_INPUT,
+		SC_MASTER_OUTPUT_FAILURE,
+		PNG_OUTPUT_FAILURE,
+		HSF_OUTPUT_FAILURE,
+		PRC_OUTPUT_FAILURE,
+		STEP_OUTPUT_FAILURE,
+		STL_OUTPUT_FAILURE,
+		XT_OUTPUT_FAILURE,
+		THREE_MF_OUTPUT_FAILURE,
+		JT_OUTPUT_FAILURE,
+		PDF_OUTPUT_FAILURE,
+		SC_OUTPUT_FAILURE,
+		XML_OUTPUT_FAILURE,
+		HTML_OUTPUT_FAILURE,
+		DEPENDENDIES_OUTPUT_FAILURE,
+		XML_BOM_OUTPUT_FAILURE,
+		CONFIG_FILE_OUTPUT_FAILURE,
+		SHATTERED_OUTPUT_FAILURE,
+		UNKNOWN
+	}
+	
+	private Result result;
+	
+	private FailCause cause;
+	
+	private String desription;
+}
