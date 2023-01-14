@@ -36,7 +36,8 @@ pipeline {
                 //    junit 'target/surefire-reports/**/*.xml'
                 //}
                 always {
-                    error "I AM FAILING NOW"
+                    //error "I AM FAILING NOW"
+                    echo "junit test"
                 }
                 success {
                     echo "MOST DEFINITELY FINISHED"
