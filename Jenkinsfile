@@ -33,7 +33,7 @@ pipeline {
             }
             post {
                 always {
-                    echo "=== junit test result ==="
+                    echo "Junit test result."
                     junit allowEmptyResults: true, testResults: "target/surefire-reports/**/*.xml"
                 }
                 success {
